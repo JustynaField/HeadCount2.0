@@ -27,10 +27,7 @@ export default class DistrictRepository {
         newData[Location].data = {}
       }
         newData[Location].data[TimeFrame] = sanitizedData
-        // console.log(typeof parseFloat(Data.toFixed(3)))
     })
-
-
     return newData
   }
 

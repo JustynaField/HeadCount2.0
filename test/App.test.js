@@ -30,4 +30,24 @@ describe('App', () => {
     expect(wrapper.find('.controls-container').length).toEqual(1)
   });
 
+  it('should have 181 objects on page load', () => {
+    const wrapper = shallow(<App />);
+
+    expect(Object.keys(wrapper.state().data)).toHaveLength(181)
+  })
+
+  it.skip('fires an onChange event on user input which should update the state', () => {
+  const mockedSubmit = jest.fn();
+  const wrapper = mount(<Controls onChange={this.handleChange.bind(this)}/>)
+
+  const input = wrapper.find('input');
+
+  input.simulate('change', {target: {value: 'Colo'} })
+
+  expect(input.node.value).toEqual('Colo');
+  expect(mockedSubmit).toHaveBeenCalledTimes(1);
+  expect(Object.keys(wrapper.state().data)).toHaveLength(2)
+
+  })
+
 });
