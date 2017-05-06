@@ -4,6 +4,7 @@ import CardsDisplay from './CardsDisplay';
 import { Controls } from './Controls'
 import DistrictRepository from './helper.js'
 import kinderData from '../data/kindergartners_in_full_day_program.js';
+import Comparison from './Comparison'
 
 
 class App extends Component {
@@ -24,6 +25,10 @@ class App extends Component {
     const sortedData = renderedData.findAllMatches(userInput)
     this.setState({ data: sortedData });
     // console.log(this.state.data)
+  }
+
+  handleComparison() {
+
   }
 
   render() {
