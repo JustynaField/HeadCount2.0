@@ -76,4 +76,5 @@ export default class DistrictRepository {
     return {[district1.toUpperCase()]: firstAverage, [district2.toUpperCase()]: secondAverage, 'compared': compareAverages}
   }
 
+
 }
