@@ -18,6 +18,8 @@ class App extends Component {
   componentWillMount() {
     const renderedData = new DistrictRepository(kinderData);
     this.setState({data: renderedData.data})
+    console.log(this.state.data)
+
   }
 
   handleChange(userInput) {
@@ -43,6 +45,10 @@ class App extends Component {
 
     );
   }
+}
+
+App.propTypes = {
+  data: React.PropTypes.object.isRequired
 }
 
 export default App;

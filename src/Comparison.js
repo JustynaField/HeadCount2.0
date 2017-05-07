@@ -1,10 +1,10 @@
-import React from 'react';
-
-const Comparison = () => {
-
-  return(
-
-  )
-}
-
-export default Comparison
+// import React from 'react';
+//
+// const Comparison = () => {
+//
+//   return(
+//
+//   )
+// }
+//
+// export default Comparison
