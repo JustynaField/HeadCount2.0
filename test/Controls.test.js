@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { Controls } from '../src/Controls';
 
 
@@ -22,5 +22,15 @@ describe ('Controls', () => {
 
     expect(wrapper.find('input').hasClass('input-field')).toEqual(true);
   })
+
+  it.skip('fires an onChange event on user input which should update the input field', () => {
+  const wrapper = mount(<Controls />)
+  const input = wrapper.find('input');
+
+  input.simulate('change', {target: {value: 'Colorado'} });
+
+  expect(input.node.value).toEqual('Colorado');
+});
+
 
 })
