@@ -1,36 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
 import CardsDisplay from './CardsDisplay';
 import { Controls } from './Controls'
 import DistrictRepository from './helper.js'
 import kinderData from '../data/kindergartners_in_full_day_program.js';
-import Comparison from './Comparison'
 
+const renderedData = new DistrictRepository(kinderData);
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      data: {},
+      data:renderedData.data
     }
   }
 
-  componentWillMount() {
-    const renderedData = new DistrictRepository(kinderData);
-    this.setState({data: renderedData.data})
-    console.log(this.state.data)
-
-  }
-
   handleChange(userInput) {
-    const renderedData = new DistrictRepository(kinderData);
     const sortedData = renderedData.findAllMatches(userInput)
     this.setState({ data: sortedData });
-    // console.log(this.state.data)
-  }
-
-  handleComparison() {
-
   }
 
   render() {
@@ -45,10 +31,6 @@ class App extends Component {
 
     );
   }
-}
-
-App.propTypes = {
-  data: React.PropTypes.object.isRequired
 }
 
 export default App;

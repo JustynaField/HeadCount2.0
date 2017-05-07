@@ -18,16 +18,16 @@ describe('App', () => {
     expect(wrapper.contains(welcome)).toEqual(true);
   });
 
-  it('should have a component called CardsDisplay', () => {
-    const wrapper = shallow(<App />);
-
-    expect(wrapper.find('CardsDisplay').length).toEqual(1)
-  });
-
   it('should render a Controls component', () => {
     const wrapper = mount(<App />);
 
-    expect(wrapper.find('.controls-container').length).toEqual(1)
+    expect(wrapper.find('.controls-container')).toHaveLength(1)
+  });
+
+  it('should have a component called CardsDisplay', () => {
+    const wrapper = shallow(<App />);
+
+    expect(wrapper.find('CardsDisplay')).toHaveLength(1)
   });
 
   it('should have 181 objects on page load', () => {

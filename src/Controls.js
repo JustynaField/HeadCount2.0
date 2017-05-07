@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export const Controls = ({onChange}) => {
 
@@ -11,4 +12,8 @@ export const Controls = ({onChange}) => {
           />
       </section>
     )
+}
+
+Controls.propTypes = {
+  onChange: PropTypes.func.isRequired,
 }
