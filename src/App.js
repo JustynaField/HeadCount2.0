@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CardsDisplay from './CardsDisplay';
-import { Controls } from './Controls'
-import DistrictRepository from './helper.js'
+import { CardsDisplay } from './CardsDisplay';
+import { Comparison } from './Comparison';
+import { Controls } from './Controls';
+import DistrictRepository from './helper.js';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 
 const renderedData = new DistrictRepository(kinderData);
@@ -10,7 +11,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      data:renderedData.data
+      data: renderedData.data,
+      selectedCards: []
     }
   }
 
@@ -19,14 +21,48 @@ class App extends Component {
     this.setState({ data: sortedData });
   }
 
+  handleSelect(input) {
+    const object = renderedData.findByName(input);
+    let temp = this.state.selectedCards;
+    temp.push(object);
+
+      if(temp.length < 3) {
+      this.setState({
+        selectedCards: temp,
+      })
+      event.target.classList.toggle('selected');
+    }
+  }
+
+  findDistrictAverage(district) {
+      return renderedData.findAverage(district);
+  }
+
+  compareCards(district1, district2) {
+    return renderedData.compareDistrictAverages(district1, district2);
+  }
+
+  resetState() {
+    this.setState({
+      selectedCards: []
+    })
+  }
+
   render() {
     return (
       <main>
         <section className='header-container'>
           <h2>Welcome To Headcount 2.0</h2>
-          <Controls onChange={this.handleChange.bind(this)}/>
+          <Controls onChange={this.handleChange.bind(this)}
+                    resetComparison={this.resetState.bind(this)} />
         </section>
-        <CardsDisplay cards={this.state.data}/>
+          <Comparison findDistrictAverage={this.findDistrictAverage.bind(this)}
+                      compareCards={this.compareCards.bind(this)}
+                      selectedCards={this.state.selectedCards} />
+
+        <CardsDisplay cards={this.state.data}
+                      selectedCards={ this.state.selectedCards }
+                      onClick={ this.handleSelect.bind(this) } />
       </main>
 
     );

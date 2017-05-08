@@ -1,6 +1,3 @@
-/*APP COMPONENT RELATED CSS GOES HERE*/
-
-
 html,
 body {
   width: auto;
@@ -15,14 +12,31 @@ body {
   height: 210px;
   border: 6px double white;
   background-color: #25435F;
-  /*border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;*/
 }
 
 .controls-container {
   display: flex;
   align-items: center;
   margin-top: 20px;
+}
+
+.comparison-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.comparison {
+  position: absolute;
+  top: 63%;
+  text-align: center;
+  font-size: 1em;
+  font-family: 'Roboto Slab', serif;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 input {
@@ -60,7 +74,8 @@ h2 {
   margin: 5%;
 }
 
-.card {
+.card,
+.selected {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,11 +87,11 @@ h2 {
 }
 
 .above {
-  color: green;
+  color: white;
 }
 
 .below {
-  color: tomato;
+  color: rgba(255, 15, 4, 0.83);
 }
 
 .card-title {

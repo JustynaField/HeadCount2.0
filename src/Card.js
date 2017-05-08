@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Card = ({school, data}) => {
+export const Card = ({school, data}) => {
   return(
   <div className='data-container'>
     {Object.keys(data[school].data).map((datapiece, index) => {
@@ -25,5 +25,3 @@ Card.propTypes = {
   school: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired
 }
-
-export default Card
