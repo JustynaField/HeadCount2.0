@@ -9,15 +9,14 @@ export const Controls = ({ onChange, resetComparison }) => {
                 type='text'
                 placeholder='Filter by district'
                 onChange={(event) => onChange(event.target.value)} />
-        <input  className="clear-button"
+        <button className="clear-button"
                 type='submit'
-                value='CLEAR COMPARISON'
-                onClick={ () => resetComparison() } />
+                onClick={ () => resetComparison() }>CLEAR COMPARISON</button>
       </section>
     )
 }
 
 Controls.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  resetComparison: PropTypes.func.isRequired
+  onChange: PropTypes.func,
+  resetComparison: PropTypes.func
 }

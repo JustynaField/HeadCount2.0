@@ -24,12 +24,6 @@ describe('App', () => {
     expect(wrapper.find('.controls-container')).toHaveLength(1)
   });
 
-  it('should have a component called CardsDisplay', () => {
-    const wrapper = shallow(<App />);
-
-    expect(wrapper.find('CardsDisplay')).toHaveLength(1)
-  });
-
   it('should have 181 objects on page load', () => {
     const wrapper = shallow(<App />);
 

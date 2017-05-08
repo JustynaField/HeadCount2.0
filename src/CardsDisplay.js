@@ -32,7 +32,8 @@ export const CardsDisplay = ({ selectedCards, cards, onClick }) => {
   )
 }
 
-
 CardsDisplay.propTypes = {
-  cards: PropTypes.object.isRequired,
+  selectedCards: PropTypes.array,
+  cards: PropTypes.object,
+  onClick: PropTypes.func
 }
