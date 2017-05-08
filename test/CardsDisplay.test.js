@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import CardsDisplay from '../src/CardsDisplay';
-import { shallow } from 'enzyme';
-import DistrictRepository from '../src/helper.js'
-import kinderData from '../data/kindergartners_in_full_day_program.js';
+import { CardsDisplay } from '../src/CardsDisplay';
+import { shallow, mount } from 'enzyme';
 
 
 describe('CardsDisplay', () => {
 
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<CardsDisplay cards={() => {}}/>, div);
-  });
+  it('CardsDisplay section has a class of card-container', () => {
+    const data = [{location: 'denver', data: ''}, {location: 'academy', data: ''}, {location: 'akron', data: ''}]
+    const wrapper = shallow(<CardsDisplay cards={data} selectedCards={[]} onClick={() => {}}/>);
+
+    expect(wrapper.find('.card-container')).toHaveLength(1);
+  })
 
   it('CardsDisplay section has a class of card-container', () => {
-    const wrapper = shallow(<CardsDisplay cards={() => {}} />);
+    const data = [{location: 'denver', data: ''}, {location: 'academy', data: ''}, {location: 'akron', data: ''}]
+    const wrapper = shallow(<CardsDisplay cards={data} selectedCards={data} onClick={() => {}}/>);
 
-    expect(wrapper.find('section').hasClass('card-container')).toEqual(true);
+    expect(wrapper.find('.selected')).toHaveLength(3);
   })
 
 

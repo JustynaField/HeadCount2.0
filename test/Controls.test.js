@@ -23,6 +23,12 @@ describe ('Controls', () => {
     expect(wrapper.find('input').hasClass('input-field')).toEqual(true);
   })
 
+  it('has a button with a class of clear-button', () => {
+    const wrapper = shallow(<Controls />);
+
+    expect(wrapper.find('button').hasClass('clear-button')).toEqual(true);
+  })
+
   it.skip('fires an onChange event on user input which should update the input field', () => {
   const wrapper = mount(<Controls />)
   const input = wrapper.find('input');

@@ -34,10 +34,6 @@ class App extends Component {
     }
   }
 
-  findDistrictAverage(district) {
-      return renderedData.findAverage(district);
-  }
-
   compareCards(district1, district2) {
     return renderedData.compareDistrictAverages(district1, district2);
   }
@@ -56,8 +52,7 @@ class App extends Component {
           <Controls onChange={this.handleChange.bind(this)}
                     resetComparison={this.resetState.bind(this)} />
         </section>
-          <Comparison findDistrictAverage={this.findDistrictAverage.bind(this)}
-                      compareCards={this.compareCards.bind(this)}
+          <Comparison compareCards={this.compareCards.bind(this)}
                       selectedCards={this.state.selectedCards} />
 
         <CardsDisplay cards={this.state.data}

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export const Comparison = ({ selectedCards, findDistrictAverage, compareCards, resetComparison }) => {
+export const Comparison = ({ selectedCards, compareCards, resetComparison }) => {
   const showComparison = () => {
     if (selectedCards.length === 2) {
       let district1 = selectedCards[0].location.toUpperCase();
@@ -18,10 +19,6 @@ export const Comparison = ({ selectedCards, findDistrictAverage, compareCards, r
             COMPARED: {averageData.compared}
           </p>
         </div>
-      )
-    } else {
-      return (
-        <div />
       )
     }
   }
@@ -56,4 +53,10 @@ export const Comparison = ({ selectedCards, findDistrictAverage, compareCards, r
       <div />
     )
   }
+}
+
+Comparison.propTypes = {
+  selectedCards: PropTypes.array,
+  compareCards: PropTypes.func,
+  resetComparison: PropTypes.func
 }
